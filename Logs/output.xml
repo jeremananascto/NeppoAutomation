@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20230228 21:36:47.187" rpa="false" schemaversion="3">
+<suite id="s1" name="Testes" source="C:\Projetos Robot\NeppoAutomation\Testes">
+<suite id="s1-s1" name="DashboardTestes" source="C:\Projetos Robot\NeppoAutomation\Testes\DashboardTestes.robot">
+<test id="s1-s1-t1" name="Deve Validar a Pagina de Dashboard" line="10">
+<kw name="Iniciar Sessão" library="LoginActions" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>chromium</arg>
+<arg>False</arg>
+<arg>slowMo=0:00:00</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230228 21:36:49.192" level="INFO">{"browser": "chromium", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\Projetos Robot\\NeppoAutomation\\Logs\\browser\\traces\\6cef6467-f7b2-4eae-8657-5a73e8c6c282"}</msg>
+<msg timestamp="20230228 21:36:52.511" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\Projetos Robot\\NeppoAutomation\\Logs\\browser\\traces\\6cef6467-f7b2-4eae-8657-5a73e8c6c282"}</msg>
+<status status="PASS" starttime="20230228 21:36:49.191" endtime="20230228 21:36:52.511"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>https://tm2-evl.tm2digital.com/chat/#/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230228 21:36:53.798" level="INFO">Successfully initialized new page object and opened url: https://tm2-evl.tm2digital.com/chat/#/login</msg>
+<msg timestamp="20230228 21:36:53.798" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230228 21:36:52.511" endtime="20230228 21:36:53.799"/>
+</kw>
+<status status="PASS" starttime="20230228 21:36:49.191" endtime="20230228 21:36:53.799"/>
+</kw>
+<kw name="Validando Pagina Dashboard" library="DashboardActions">
+<kw name="Preenchendo formulario" library="LoginActions">
+<arg>${user}</arg>
+<arg>${senha}</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=form[name="loginForm"]</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230228 21:36:54.522" level="INFO">Waited for Element with selector css=form[name="loginForm"] at state visible</msg>
+<status status="PASS" starttime="20230228 21:36:53.801" endtime="20230228 21:36:54.523"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name="username"]</arg>
+<arg>${user}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230228 21:36:54.523" level="INFO">Fills the text 'jeremias.nascimento' in the given field.</msg>
+<status status="PASS" starttime="20230228 21:36:54.523" endtime="20230228 21:36:54.765"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name="password"]</arg>
+<arg>${senha}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230228 21:36:54.766" level="INFO">Fills the text 'Nepp@123' in the given field.</msg>
+<status status="PASS" starttime="20230228 21:36:54.766" endtime="20230228 21:36:54.855"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>id=btnLogin</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230228 21:36:54.855" endtime="20230228 21:36:55.254"/>
+</kw>
+<status status="PASS" starttime="20230228 21:36:53.800" endtime="20230228 21:36:55.254"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=span[class="roboto-thin"] &gt;&gt; text=DASHBOARD</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230228 21:37:00.594" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230228 21:37:00.595" level="FAIL">TimeoutError: locator.waitFor: Timeout 5000ms exceeded.
+=========================== logs ===========================
+waiting for selector "css=span[class="roboto-thin"] &gt;&gt; text=DASHBOARD" to be visible
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230228 21:36:55.254" endtime="20230228 21:37:00.680"/>
+</kw>
+<status status="FAIL" starttime="20230228 21:36:53.800" endtime="20230228 21:37:00.681"/>
+</kw>
+<kw name="Finalizar Sessão" library="LoginActions" type="TEARDOWN">
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=True</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230228 21:37:00.843" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230228 21:37:00.683" endtime="20230228 21:37:00.844"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:00.682" endtime="20230228 21:37:00.844"/>
+</kw>
+<status status="FAIL" starttime="20230228 21:36:49.187" endtime="20230228 21:37:00.845">TimeoutError: locator.waitFor: Timeout 5000ms exceeded.
+=========================== logs ===========================
+waiting for selector "css=span[class="roboto-thin"] &gt;&gt; text=DASHBOARD" to be visible
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</test>
+<doc>Teste de Dashboard</doc>
+<status status="FAIL" starttime="20230228 21:36:47.226" endtime="20230228 21:37:00.969"/>
+</suite>
+<suite id="s1-s2" name="EsqueciMinhaSenhaTestes" source="C:\Projetos Robot\NeppoAutomation\Testes\EsqueciMinhaSenhaTestes.robot">
+<test id="s1-s2-t1" name="Esqueci Minha Senha" line="10">
+<kw name="Iniciar Sessão" library="LoginActions" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>chromium</arg>
+<arg>False</arg>
+<arg>slowMo=0:00:00</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230228 21:37:00.996" level="INFO">{"browser": "chromium", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\Projetos Robot\\NeppoAutomation\\Logs\\browser\\traces\\94d90266-46f9-481a-be02-8ed567629d55"}</msg>
+<msg timestamp="20230228 21:37:02.289" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\Projetos Robot\\NeppoAutomation\\Logs\\browser\\traces\\94d90266-46f9-481a-be02-8ed567629d55"}</msg>
+<status status="PASS" starttime="20230228 21:37:00.995" endtime="20230228 21:37:02.290"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>https://tm2-evl.tm2digital.com/chat/#/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230228 21:37:04.608" level="INFO">Successfully initialized new page object and opened url: https://tm2-evl.tm2digital.com/chat/#/login</msg>
+<msg timestamp="20230228 21:37:04.609" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230228 21:37:02.290" endtime="20230228 21:37:04.609"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:00.994" endtime="20230228 21:37:04.609"/>
+</kw>
+<kw name="Preencher Campos" library="EsqueciMinhaSenhaActions">
+<arg>jeremias.nascimento</arg>
+<arg>jeremias.nascimento@neppo.com.br</arg>
+<kw name="Click" library="Browser">
+<arg>css=div[class="text-forgot-pass ng-binding"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230228 21:37:04.611" endtime="20230228 21:37:05.037"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=div[class="middle-inputs screen-reset-password"]</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230228 21:37:05.063" level="INFO">Waited for Element with selector css=div[class="middle-inputs screen-reset-password"] at state visible</msg>
+<status status="PASS" starttime="20230228 21:37:05.038" endtime="20230228 21:37:05.063"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name="reset-user"]</arg>
+<arg>${usuario}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230228 21:37:05.064" level="INFO">Fills the text 'jeremias.nascimento' in the given field.</msg>
+<status status="PASS" starttime="20230228 21:37:05.063" endtime="20230228 21:37:05.107"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[type="email"]</arg>
+<arg>${e-mail}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230228 21:37:05.108" level="INFO">Fills the text 'jeremias.nascimento@neppo.com.br' in the given field.</msg>
+<status status="PASS" starttime="20230228 21:37:05.107" endtime="20230228 21:37:05.253"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=input[type="button"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230228 21:37:05.253" endtime="20230228 21:37:05.400"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=.ng-binding &gt;&gt; text=Um link foi enviado para o seu e-mail, favor verificar seu e-mail e a caixa de SPAM.</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230228 21:37:10.738" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-2.png"&gt;&lt;img src="browser/screenshot/fail-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230228 21:37:10.739" level="FAIL">TimeoutError: locator.waitFor: Timeout 5000ms exceeded.
+=========================== logs ===========================
+waiting for selector "css=.ng-binding &gt;&gt; text=Um link foi enviado para o seu e-mail, favor verificar seu e-mail e a caixa de SPAM." to be visible
+  selector resolved to hidden &lt;span class="ng-binding"&gt;Um link foi enviado para o seu e-mail, favor veri…&lt;/span&gt;
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230228 21:37:05.400" endtime="20230228 21:37:10.741"/>
+</kw>
+<status status="FAIL" starttime="20230228 21:37:04.610" endtime="20230228 21:37:10.743"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230228 21:37:10.744" endtime="20230228 21:37:10.744"/>
+</kw>
+<kw name="Finalizar Sessão" library="LoginActions" type="TEARDOWN">
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=True</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230228 21:37:10.927" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-2.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230228 21:37:10.747" endtime="20230228 21:37:10.928"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:10.745" endtime="20230228 21:37:10.928"/>
+</kw>
+<status status="FAIL" starttime="20230228 21:37:00.991" endtime="20230228 21:37:10.929">TimeoutError: locator.waitFor: Timeout 5000ms exceeded.
+=========================== logs ===========================
+waiting for selector "css=.ng-binding &gt;&gt; text=Um link foi enviado para o seu e-mail, favor verificar seu e-mail e a caixa de SPAM." to be visible
+  selector resolved to hidden &lt;span class="ng-binding"&gt;Um link foi enviado para o seu e-mail, favor veri…&lt;/span&gt;
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</test>
+<doc>Teste de Esqueci Minha Senha</doc>
+<status status="FAIL" starttime="20230228 21:37:00.974" endtime="20230228 21:37:11.084"/>
+</suite>
+<suite id="s1-s3" name="LoginTestes" source="C:\Projetos Robot\NeppoAutomation\Testes\LoginTestes.robot">
+<test id="s1-s3-t1" name="Login com sucesso" line="10">
+<kw name="Iniciar Sessão" library="LoginActions" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>chromium</arg>
+<arg>False</arg>
+<arg>slowMo=0:00:00</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230228 21:37:11.111" level="INFO">{"browser": "chromium", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\Projetos Robot\\NeppoAutomation\\Logs\\browser\\traces\\c78fe905-282c-41e4-ac14-92f17d7a05b7"}</msg>
+<msg timestamp="20230228 21:37:12.432" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\Projetos Robot\\NeppoAutomation\\Logs\\browser\\traces\\c78fe905-282c-41e4-ac14-92f17d7a05b7"}</msg>
+<status status="PASS" starttime="20230228 21:37:11.110" endtime="20230228 21:37:12.432"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>https://tm2-evl.tm2digital.com/chat/#/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230228 21:37:14.433" level="INFO">Successfully initialized new page object and opened url: https://tm2-evl.tm2digital.com/chat/#/login</msg>
+<msg timestamp="20230228 21:37:14.434" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230228 21:37:12.432" endtime="20230228 21:37:14.434"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:11.109" endtime="20230228 21:37:14.437"/>
+</kw>
+<kw name="Preenchendo formulario" library="LoginActions">
+<arg>${user}</arg>
+<arg>${senha}</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=form[name="loginForm"]</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230228 21:37:14.552" level="INFO">Waited for Element with selector css=form[name="loginForm"] at state visible</msg>
+<status status="PASS" starttime="20230228 21:37:14.440" endtime="20230228 21:37:14.554"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name="username"]</arg>
+<arg>${user}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230228 21:37:14.555" level="INFO">Fills the text 'jeremias.nascimento' in the given field.</msg>
+<status status="PASS" starttime="20230228 21:37:14.554" endtime="20230228 21:37:14.700"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name="password"]</arg>
+<arg>${senha}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230228 21:37:14.701" level="INFO">Fills the text 'Nepp@123' in the given field.</msg>
+<status status="PASS" starttime="20230228 21:37:14.700" endtime="20230228 21:37:14.775"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>id=btnLogin</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230228 21:37:14.776" endtime="20230228 21:37:15.146"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:14.439" endtime="20230228 21:37:15.146"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230228 21:37:25.157" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20230228 21:37:15.147" endtime="20230228 21:37:25.157"/>
+</kw>
+<kw name="Finalizar Sessão" library="LoginActions" type="TEARDOWN">
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=True</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230228 21:37:25.462" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-3.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230228 21:37:25.159" endtime="20230228 21:37:25.462"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:25.158" endtime="20230228 21:37:25.462"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:11.105" endtime="20230228 21:37:25.463"/>
+</test>
+<test id="s1-s3-t2" name="Incorreto password" line="15">
+<kw name="Iniciar Sessão" library="LoginActions" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>chromium</arg>
+<arg>False</arg>
+<arg>slowMo=0:00:00</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230228 21:37:25.550" level="INFO">{"browser": "chromium", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\Projetos Robot\\NeppoAutomation\\Logs\\browser\\traces\\a4419791-402a-497e-81b0-2625554144b5"}</msg>
+<msg timestamp="20230228 21:37:26.695" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\Projetos Robot\\NeppoAutomation\\Logs\\browser\\traces\\a4419791-402a-497e-81b0-2625554144b5"}</msg>
+<status status="PASS" starttime="20230228 21:37:25.549" endtime="20230228 21:37:26.695"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>https://tm2-evl.tm2digital.com/chat/#/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230228 21:37:28.038" level="INFO">Successfully initialized new page object and opened url: https://tm2-evl.tm2digital.com/chat/#/login</msg>
+<msg timestamp="20230228 21:37:28.038" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230228 21:37:26.696" endtime="20230228 21:37:28.038"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:25.548" endtime="20230228 21:37:28.039"/>
+</kw>
+<kw name="Preenchendo formulario" library="LoginActions">
+<arg>${user}</arg>
+<arg>Neppo1234</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=form[name="loginForm"]</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230228 21:37:28.730" level="INFO">Waited for Element with selector css=form[name="loginForm"] at state visible</msg>
+<status status="PASS" starttime="20230228 21:37:28.040" endtime="20230228 21:37:28.730"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name="username"]</arg>
+<arg>${user}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230228 21:37:28.731" level="INFO">Fills the text 'jeremias.nascimento' in the given field.</msg>
+<status status="PASS" starttime="20230228 21:37:28.731" endtime="20230228 21:37:28.918"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name="password"]</arg>
+<arg>${senha}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230228 21:37:28.919" level="INFO">Fills the text 'Neppo1234' in the given field.</msg>
+<status status="PASS" starttime="20230228 21:37:28.918" endtime="20230228 21:37:29.104"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>id=btnLogin</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230228 21:37:29.105" endtime="20230228 21:37:29.599"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:28.040" endtime="20230228 21:37:29.601"/>
+</kw>
+<kw name="Validando Mensagem de Erro login" library="LoginActions">
+<arg>Usuário ou senha inválido.</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${element}</var>
+<arg>css=span[class="ng-binding"] &gt;&gt; text=${mensagem_esperada}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230228 21:37:29.606" level="INFO">${element} = css=span[class="ng-binding"] &gt;&gt; text=Usuário ou senha inválido.</msg>
+<status status="PASS" starttime="20230228 21:37:29.606" endtime="20230228 21:37:29.606"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>${element}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230228 21:37:29.626" level="INFO">Waited for Element with selector css=span[class="ng-binding"] &gt;&gt; text=Usuário ou senha inválido. at state visible</msg>
+<status status="PASS" starttime="20230228 21:37:29.607" endtime="20230228 21:37:29.627"/>
+</kw>
+<kw name="Get Text" library="Browser">
+<arg>${element}</arg>
+<arg>equal</arg>
+<arg>${mensagem_esperada}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230228 21:37:29.627" endtime="20230228 21:37:29.697"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:29.605" endtime="20230228 21:37:29.697"/>
+</kw>
+<kw name="Finalizar Sessão" library="LoginActions" type="TEARDOWN">
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=True</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230228 21:37:30.129" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-4.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230228 21:37:29.703" endtime="20230228 21:37:30.129"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:29.702" endtime="20230228 21:37:30.129"/>
+</kw>
+<tag>inc_pass</tag>
+<status status="PASS" starttime="20230228 21:37:25.544" endtime="20230228 21:37:30.130"/>
+</test>
+<test id="s1-s3-t3" name="Incorreto username" line="22">
+<kw name="Iniciar Sessão" library="LoginActions" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>chromium</arg>
+<arg>False</arg>
+<arg>slowMo=0:00:00</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230228 21:37:30.293" level="INFO">{"browser": "chromium", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\Projetos Robot\\NeppoAutomation\\Logs\\browser\\traces\\f703cf9d-6586-44b4-9029-8b313165949a"}</msg>
+<msg timestamp="20230228 21:37:31.654" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\Projetos Robot\\NeppoAutomation\\Logs\\browser\\traces\\f703cf9d-6586-44b4-9029-8b313165949a"}</msg>
+<status status="PASS" starttime="20230228 21:37:30.292" endtime="20230228 21:37:31.654"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>https://tm2-evl.tm2digital.com/chat/#/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230228 21:37:33.428" level="INFO">Successfully initialized new page object and opened url: https://tm2-evl.tm2digital.com/chat/#/login</msg>
+<msg timestamp="20230228 21:37:33.428" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230228 21:37:31.654" endtime="20230228 21:37:33.429"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:30.292" endtime="20230228 21:37:33.429"/>
+</kw>
+<kw name="Preenchendo formulario" library="LoginActions">
+<arg>jeremias.silva</arg>
+<arg>${senha}</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=form[name="loginForm"]</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230228 21:37:34.179" level="INFO">Waited for Element with selector css=form[name="loginForm"] at state visible</msg>
+<status status="PASS" starttime="20230228 21:37:33.431" endtime="20230228 21:37:34.179"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name="username"]</arg>
+<arg>${user}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230228 21:37:34.179" level="INFO">Fills the text 'jeremias.silva' in the given field.</msg>
+<status status="PASS" starttime="20230228 21:37:34.179" endtime="20230228 21:37:34.398"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name="password"]</arg>
+<arg>${senha}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230228 21:37:34.399" level="INFO">Fills the text 'Nepp@123' in the given field.</msg>
+<status status="PASS" starttime="20230228 21:37:34.398" endtime="20230228 21:37:34.538"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>id=btnLogin</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230228 21:37:34.539" endtime="20230228 21:37:34.776"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:33.430" endtime="20230228 21:37:34.776"/>
+</kw>
+<kw name="Validando Mensagem de Erro login" library="LoginActions">
+<arg>Usuário ou senha inválido.</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${element}</var>
+<arg>css=span[class="ng-binding"] &gt;&gt; text=${mensagem_esperada}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230228 21:37:34.839" level="INFO">${element} = css=span[class="ng-binding"] &gt;&gt; text=Usuário ou senha inválido.</msg>
+<status status="PASS" starttime="20230228 21:37:34.839" endtime="20230228 21:37:34.840"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>${element}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230228 21:37:34.888" level="INFO">Waited for Element with selector css=span[class="ng-binding"] &gt;&gt; text=Usuário ou senha inválido. at state visible</msg>
+<status status="PASS" starttime="20230228 21:37:34.840" endtime="20230228 21:37:34.889"/>
+</kw>
+<kw name="Get Text" library="Browser">
+<arg>${element}</arg>
+<arg>equal</arg>
+<arg>${mensagem_esperada}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230228 21:37:34.889" endtime="20230228 21:37:35.032"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:34.838" endtime="20230228 21:37:35.032"/>
+</kw>
+<kw name="Finalizar Sessão" library="LoginActions" type="TEARDOWN">
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=True</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230228 21:37:35.542" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-5.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230228 21:37:35.037" endtime="20230228 21:37:35.542"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:35.032" endtime="20230228 21:37:35.543"/>
+</kw>
+<tag>inc_user</tag>
+<status status="PASS" starttime="20230228 21:37:30.288" endtime="20230228 21:37:35.543"/>
+</test>
+<test id="s1-s3-t4" name="Campos obrigatório" line="29">
+<kw name="Iniciar Sessão" library="LoginActions" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>chromium</arg>
+<arg>False</arg>
+<arg>slowMo=0:00:00</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230228 21:37:35.713" level="INFO">{"browser": "chromium", "headless": false, "handleSIGINT": true, "handleSIGTERM": true, "handleSIGHUP": true, "timeout": 30000.0, "devtools": false, "slowMo": 0.0, "tracesDir": "C:\\Projetos Robot\\NeppoAutomation\\Logs\\browser\\traces\\bd1c805d-a311-491f-8db7-3727988983f3"}</msg>
+<msg timestamp="20230228 21:37:37.048" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"handleSIGINT":true,"handleSIGTERM":true,"handleSIGHUP":true,"timeout":30000,"devtools":false,"slowMo":0,"tracesDir":"C:\\Projetos Robot\\NeppoAutomation\\Logs\\browser\\traces\\bd1c805d-a311-491f-8db7-3727988983f3"}</msg>
+<status status="PASS" starttime="20230228 21:37:35.711" endtime="20230228 21:37:37.048"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>https://tm2-evl.tm2digital.com/chat/#/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230228 21:37:39.366" level="INFO">Successfully initialized new page object and opened url: https://tm2-evl.tm2digital.com/chat/#/login</msg>
+<msg timestamp="20230228 21:37:39.366" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230228 21:37:37.048" endtime="20230228 21:37:39.366"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:35.710" endtime="20230228 21:37:39.367"/>
+</kw>
+<kw name="Preenchendo formulario" library="LoginActions">
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=form[name="loginForm"]</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230228 21:37:39.549" level="INFO">Waited for Element with selector css=form[name="loginForm"] at state visible</msg>
+<status status="PASS" starttime="20230228 21:37:39.369" endtime="20230228 21:37:39.549"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name="username"]</arg>
+<arg>${user}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230228 21:37:39.550" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20230228 21:37:39.550" endtime="20230228 21:37:39.637"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[name="password"]</arg>
+<arg>${senha}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230228 21:37:39.638" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20230228 21:37:39.637" endtime="20230228 21:37:39.696"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>id=btnLogin</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230228 21:37:39.696" endtime="20230228 21:37:39.876"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:39.367" endtime="20230228 21:37:39.876"/>
+</kw>
+<kw name="Validando Mensagem de Erro login" library="LoginActions">
+<arg>Usuário e senha são obrigatórios</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${element}</var>
+<arg>css=span[class="ng-binding"] &gt;&gt; text=${mensagem_esperada}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230228 21:37:39.887" level="INFO">${element} = css=span[class="ng-binding"] &gt;&gt; text=Usuário e senha são obrigatórios</msg>
+<status status="PASS" starttime="20230228 21:37:39.886" endtime="20230228 21:37:39.887"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>${element}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230228 21:37:39.918" level="INFO">Waited for Element with selector css=span[class="ng-binding"] &gt;&gt; text=Usuário e senha são obrigatórios at state visible</msg>
+<status status="PASS" starttime="20230228 21:37:39.887" endtime="20230228 21:37:39.918"/>
+</kw>
+<kw name="Get Text" library="Browser">
+<arg>${element}</arg>
+<arg>equal</arg>
+<arg>${mensagem_esperada}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230228 21:37:39.918" endtime="20230228 21:37:39.954"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:39.885" endtime="20230228 21:37:39.955"/>
+</kw>
+<kw name="Finalizar Sessão" library="LoginActions" type="TEARDOWN">
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=True</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230228 21:37:40.471" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-6.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230228 21:37:39.957" endtime="20230228 21:37:40.472"/>
+</kw>
+<status status="PASS" starttime="20230228 21:37:39.956" endtime="20230228 21:37:40.472"/>
+</kw>
+<tag>camp_obrig</tag>
+<status status="PASS" starttime="20230228 21:37:35.706" endtime="20230228 21:37:40.473"/>
+</test>
+<doc>Teste de Login</doc>
+<status status="PASS" starttime="20230228 21:37:11.089" endtime="20230228 21:37:40.602"/>
+</suite>
+<status status="FAIL" starttime="20230228 21:36:47.189" endtime="20230228 21:37:40.631"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">camp_obrig</stat>
+<stat pass="1" fail="0" skip="0">inc_pass</stat>
+<stat pass="1" fail="0" skip="0">inc_user</stat>
+</tag>
+<suite>
+<stat pass="4" fail="2" skip="0" id="s1" name="Testes">Testes</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="DashboardTestes">Testes.DashboardTestes</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s2" name="EsqueciMinhaSenhaTestes">Testes.EsqueciMinhaSenhaTestes</stat>
+<stat pass="4" fail="0" skip="0" id="s1-s3" name="LoginTestes">Testes.LoginTestes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
